@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="gbk"></constant>
+	<constant name="struts.devMode" value="true"></constant>
+	<!-- Action对象的创建交给Spring完成 -->
+	<constant name="struts.objectFactory" value="spring"></constant>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+
+	<package name="job" namespace="/job" extends="struts-default">
+		<action name="job_*" class="jobAction" method="{1}">
+			<result name="job_message">/job_message.jsp</result>
+			<result name="show_job_view">/job_main.jsp</result>
+			<result name="detail_myjob">/detail.jsp</result>
+            <result name="edit_view">/editmyjob.jsp</result>
+            <result name="edit_myjob">/alert1.jsp</result>
+            <result name="delete_myjob">/alert.jsp</result>
+            <result name="fjob">/showmyjob.jsp</result>
+            <result name="show_applicationlist">/jobapplication.jsp</result>
+		</action>
+	</package>
+	
+	<package name="seeker" namespace="/seeker" extends="struts-default">
+		<action name="seeker_*" class="seekerAction" method="{1}">
+			<result name="wanshan">/complete.jsp</result>
+			<result name="input">/index.jsp</result>
+			<result name="back_reg">/reg.jsp</result>
+			<result name="seeker_update">/updateverify.jsp</result>
+			<result name="password_error">/loginfailerror.jsp</result>
+			<result name="nouser">/loginfailno.jsp</result>
+			<result name="show_job">/shouye.jsp</result>
+			<result name="input_error">/loginfailerror.jsp</result>
+		</action>
+	</package>
+	
+	<package name="resume" namespace="/resume" extends="struts-default">
+		<action name="resume_*" class="resumeAction" method="{1}">
+			<result name="go_resume">/goresume.jsp</result>
+			<result name="add_application">/add_application.jsp</result>
+			<result name="application_message">/application_message.jsp</result>
+			<result name="add_jl">/addverify.jsp</result>       <!-- 添加完简历之后跳回到我的简历列表页面 -->
+            <result name="show_jllist">/Myjl.jsp</result>       <!-- 显示所有简历页面（我的简历列表页面） -->
+            <result name="edit_jl">/editjlsucc.jsp</result>     <!-- 编辑完简历之后跳到我的简历列表页面 -->
+            <result name="show_jldetail">/detailjl.jsp</result> <!-- 跳到简历详情页面 -->
+            <result name="delete_jl">/deleteverify.jsp</result> <!-- 跳到确认删除页面 -->
+            <result name="showedit_jl">/editjl.jsp</result>     <!-- 跳到编辑简历页面 -->
+		</action>
+		<action name="application_*" class="applicationAction" method="{1}">
+			<result name="add_application">/add_application.jsp</result>
+			<result name="application_message">/application_message.jsp</result>
+			<result name="edit_state">/tongguoalert.jsp</result>
+			<result name="ed">/appli_detail.jsp</result>
+			<result name="success1">/alert.jsp</result>
+			<result name="show_showapplilist">/showappli.jsp</result>
+		</action>
+		<action name="resumeku_*" class="resumekuAction" method="{1}">
+            <result name="show_jldetail">/detailresumeku.jsp</result>
+        </action>
+	</package>
+	<package name="news" namespace="/news" extends="struts-default">
+		<action name="news_*" class="newsAction" method="{1}">
+   			<result name="add_news">/succnews.jsp</result>
+   			<result name="show_news">/news.jsp</result>
+   			<result name="detail_view">/news_detail.jsp</result>
+  </action>
+	</package>
+</struts>    
